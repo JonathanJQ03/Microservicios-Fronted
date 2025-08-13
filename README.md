@@ -5,51 +5,54 @@
 
 ---
 
-## <span style="color:#32CD32;">Descripción del Proyecto</span>
-Este proyecto implementa un sistema modular para gestionar **Productos** y **Categorías** utilizando microservicios.  
+# <span style="color:#32CD32;">Descripción del Proyecto</span>
+Este proyecto implementa un sistema modular para gestionar **Productos** y **Categorías** utilizando microservicios.
 Cada componente (frontend, backend, base de datos) corre en contenedores Docker separados y se orquesta mediante Docker Compose.  
-
-Esta arquitectura permite <span style="color:#FF4500;">escalabilidad</span>, <span style="color:#FF4500;">despliegues independientes</span> y un <span style="color:#FF4500;">mantenimiento sencillo</span>.
 
 ---
 
-## <span style="color:#32CD32;">Tecnologías Usadas</span>
+# <span style="color:#32CD32;">Tecnologías Usadas</span>
 
-| Tecnología   | Versión / Detalle                        |
+| Tecnología   | Versión / Detalle                      |
 |-------------|-----------------------------------------|
 | Java        | 17                                      |
 | Spring Boot | Última versión compatible               |
 | MySQL       | Imagen oficial Docker más reciente      |
-| Angular     | 19                                      |
+| Angular     | 19 / 20                                 |
 | Docker      | Docker Engine + Docker Compose          |
-
+| Cloud       | AWSEC2 / Servicio en la Nube            |
 ---
 
-## <span style="color:#32CD32;">Estructura del Proyecto</span>
+# <span style="color:#32CD32;">Estructura del Proyecto</span>
 
 ```text
 .
-├── backend/               # Microservicios backend: producto y categoría
-├── frontend/              # Aplicación frontend Angular
-├── docker-compose.yml     # Orquestación de todos los contenedores
+├── backend/               # Microservicios backend (Spring Boot 17 + MySQL)
+│   ├── producto/          # Servicio de gestión de productos
+│   └── categoria/         # Servicio de gestión de categorías
+├── frontend/              # Aplicación frontend Angular 19/20
+├── docker-compose.yml     # Orquestación de contenedores Docker (backend, frontend, DB)
+├── README.md              # Documentación del proyecto
+└── scripts/               # Scripts de despliegue o configuración
+
 ```
 <span style="color:#32CD32;">Despliegue en Servidor Ubuntu (Ej. EC2 AWS)</span>
 
-# 1️⃣ Requisitos Previos
+# 1. Requisitos Previos
 # Servidor Ubuntu 22.04 o superior.
-# Acceso SSH al servidor.
+# Acceso SSH al servidor (Tener instalado el servicio de SSH).
 # Git instalado (si no, se instalará automáticamente).
 # Conexión a Internet para descargar imágenes Docker y código fuente.
 
-# 2️⃣ Conexión al Servidor
-ssh -i /ruta/a/tu-clave.pem ubuntu@<IP_DEL_SERVIDOR>
+# 2️⃣ Conexión al Servidor (Usarlo desde la consola de comandos "CMD")
+ssh -i "C:\Users\jonat\Desktop\Software\AWS\Docker-Security-Web.pem" ubuntu@ec2-3-138-41-233.us-east-2.compute.amazonaws.com
 
-# 3️⃣ Preparar el Servidor
-sudo apt update && sudo apt upgrade -y
+# 3️⃣ Preparar el Servidor (Una vez ejecutado el comando "ssh" de arriba ya podemos ejecutar los siguientes comandos)
+sudo apt update && sudo apt upgrade -y (Este paso puede demorar más, se requiere tambien de salir de la consola ubunto y volver a ingresar con la coenxión del paso 2)
 sudo apt install -y docker.io docker-compose git
 sudo systemctl enable docker --now
 sudo usermod -aG docker $USER
-# ⚠️ Cierra sesión SSH y vuelve a conectarte para aplicar los permisos.
+(Una vez ejecutado este ultimo comando volver a salir y entrar para instanciar los clientes docker, realizar el ingreso con el paso 2)
 
 # 4️⃣ Clonar el Repositorio
 git clone https://github.com/JonathanJQ03/Microservicios-Fronted.git
