@@ -39,10 +39,10 @@ Cada componente (frontend, backend, base de datos) corre en contenedores Docker 
 <span style="color:#32CD32;">Despliegue en Servidor Ubuntu (Ej. EC2 AWS)</span>
 
 # 1. Requisitos Previos
-# Servidor Ubuntu 22.04 o superior.
-# Acceso SSH al servidor (Tener instalado el servicio de SSH).
-# Git instalado (si no, se instalará automáticamente).
-# Conexión a Internet para descargar imágenes Docker y código fuente.
+ a. Servidor Ubuntu 22.04 o superior.
+ b. Acceso SSH al servidor (Tener instalado el servicio de SSH).
+ c. Git instalado (si no, se instalará automáticamente).
+ d. Conexión a Internet para descargar imágenes Docker y código fuente.
 
 # 2️⃣ Conexión al Servidor (Usarlo desde la consola de comandos "CMD")
 ssh -i "C:\Users\jonat\Desktop\Software\AWS\Docker-Security-Web.pem" ubuntu@ec2-3-138-41-233.us-east-2.compute.amazonaws.com
