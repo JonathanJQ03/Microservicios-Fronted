@@ -38,14 +38,30 @@ Cada componente (frontend, backend, base de datos) corre en contenedores Docker 
 ```
 <span style="color:#32CD32;">Despliegue en Servidor Ubuntu (Ej. EC2 AWS)</span>
 
-# 1. Requisitos Previos
- a. Servidor Ubuntu 22.04 o superior.
- b. Acceso SSH al servidor (Tener instalado el servicio de SSH).
- c. Git instalado (si no, se instalará automáticamente).
- d. Conexión a Internet para descargar imágenes Docker y código fuente.
+# 1. 🛠️ Requisitos Previos
+
+- **Servidor Ubuntu 22.04 o superior**  
+
+- **Acceso SSH al servidor**  
+  *(Asegúrate de que el servicio SSH esté instalado y corriendo.)*  
+
+- **Git instalado**  
+  *(Si no está instalado, se instalará automáticamente durante el proceso.)*  
+
+- **Conexión a Internet**  
+  *(Necesaria para descargar imágenes Docker y el código fuente.)*
 
 # 2️⃣ Conexión al Servidor (Usarlo desde la consola de comandos "CMD")
+
+Para conectarte a tu instancia EC2 mediante SSH, utiliza el siguiente comando:
+
+```bash
 ssh -i "C:\Users\jonat\Desktop\Software\AWS\Docker-Security-Web.pem" ubuntu@ec2-3-138-41-233.us-east-2.compute.amazonaws.com
+⚠️ Importante:
+La ruta de acceso "C:\Users\jonat\Desktop\Software\AWS\Docker-Security-Web.pem" debe existir en tu computadora local, por ende debemos descargar el emp y guardarlo en su maquina.
+Copia la ruta completa de tu archivo .pem y pégala en lugar de la ruta que aparece por defecto en el comando.
+
+```
 
 # 3️⃣ Preparar el Servidor (Una vez ejecutado el comando "ssh" de arriba ya podemos ejecutar los siguientes comandos)
 sudo apt update && sudo apt upgrade -y (Este paso puede demorar más, se requiere tambien de salir de la consola ubunto y volver a ingresar con la coenxión del paso 2)
