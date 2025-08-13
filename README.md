@@ -92,7 +92,7 @@ sudo usermod -aG docker $USER
 git clone https://github.com/JonathanJQ03/Microservicios-Fronted.git
 
 # Entrar al directorio del proyecto clonado
-cd SistemaProductosCategor-as.-main (entrar a la carpeta donde se encuentra todos los servicios) 
+cd Microservicios-Fronted (entrar a la carpeta donde se encuentra todos los servicios) 
 
 ```
 # 5️⃣ Levantar Contenedores con Docker Compose
