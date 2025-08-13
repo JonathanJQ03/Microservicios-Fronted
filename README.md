@@ -4,6 +4,7 @@
 **Fecha:** 2025-08-13
 
 ---
+###NOTA PODEMOS ACCCEDER DIRECTAMENTE COLOCANDO ESTA DIRECCION: http://3.138.41.233:8080
 
 # <span style="color:#32CD32;">Descripción del Proyecto</span>
 Este proyecto implementa un sistema modular para gestionar **Productos** y **Categorías** utilizando microservicios.
