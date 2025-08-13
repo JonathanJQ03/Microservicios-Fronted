@@ -62,7 +62,7 @@ services:
 
 volumes:
   volumensito:
-    external: true
+
 
 networks:
   backend:
