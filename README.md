@@ -63,33 +63,63 @@ Copia la ruta completa de tu archivo .pem y pégala en lugar de la ruta que apar
 
 ```
 
-# 3️⃣ Preparar el Servidor (Una vez ejecutado el comando "ssh" de arriba ya podemos ejecutar los siguientes comandos)
-sudo apt update && sudo apt upgrade -y (Este paso puede demorar más, se requiere tambien de salir de la consola ubunto y volver a ingresar con la coenxión del paso 2)
+# 3️⃣ Preparar el Servidor
+(Una vez ejecutado el comando `ssh` del paso 2, ya podemos ejecutar los siguientes comandos)
+
+```bash
+# Actualizar paquetes y sistema
+sudo apt update && sudo apt upgrade -y
+# ⚠️ Este paso puede demorar varios minutos. 
+# Después de la actualización, es recomendable salir de la sesión SSH y volver a conectarse.
+
+# Instalar Docker, Docker Compose y Git
 sudo apt install -y docker.io docker-compose git
+
+# Habilitar Docker al iniciar el sistema y arrancarlo ahora
 sudo systemctl enable docker --now
+
+# Agregar al usuario actual al grupo docker
 sudo usermod -aG docker $USER
-(Una vez ejecutado este ultimo comando volver a salir y entrar para instanciar los clientes docker, realizar el ingreso con el paso 2)
+# ⚠️ Después de ejecutar este comando, sal de la sesión SSH y vuelve a ingresar 
+# siguiendo el paso 2 para que los cambios tengan efecto y puedas ejecutar comandos Docker sin sudo.
+```
 
 # 4️⃣ Clonar el Repositorio
+(Este paso se realiza dentro de la consola de Ubuntu, una vez conectado vía SSH)
+
+```bash
+# Clonar el repositorio desde GitHub
 git clone https://github.com/JonathanJQ03/Microservicios-Fronted.git
-cd Microservicios-Fronted
 
+# Entrar al directorio del proyecto clonado
+cd SistemaProductosCategor-as.-main (entrar a la carpeta donde se encuentra todos los servicios) 
+
+```
 # 5️⃣ Levantar Contenedores con Docker Compose
+(Este paso se realiza dentro del directorio del proyecto clonado en tu instancia Ubuntu)
+
+```bash
+# Levantar todos los contenedores en segundo plano
 docker-compose up -d
-# Esto descargará todas las imágenes necesarias y levantará los servicios según tu docker-compose.yml
-
+ml
+```
 # 6️⃣ Verificar Contenedores
+(Para asegurarte de que todos los servicios están corriendo correctamente)
+
+```bash
+# Listar todos los contenedores en ejecución
 docker ps
-# Deberías ver todos los contenedores (MySQL, backend, frontend) en ejecución.
+```
 
+```bash
 # 7️⃣ Acceder al Frontend
-# Abre tu navegador y visita:
-http://<IP_DEL_SERVIDOR>:8080
 
-<span style="color:#32CD32;">Notas</span>
-text
-Copiar
-Editar
-- El backend se conecta automáticamente a MySQL mediante las variables de entorno definidas en Docker Compose.
-- Todos los datos de MySQL se persisten en un volumen Docker definido en docker-compose.yml.
+Abre tu navegador y visita:
+
+http://<IP_DEL_SERVIDOR>:8080](http://3.138.41.233:8080
+
+⚠️ **Notas importantes:**  
+- El backend se conecta automáticamente a MySQL mediante las variables de entorno definidas en `docker-compose.yml`.  
+- Todos los datos de MySQL se persisten en un **volumen Docker** definido en `docker-compose.yml`.  
 - Cada microservicio puede actualizarse y desplegarse de forma independiente.
+```
